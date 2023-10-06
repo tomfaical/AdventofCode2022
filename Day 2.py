@@ -2513,22 +2513,17 @@ for i in range(len(inputAoC)):
 print(inputAoC[:100])
 
 score = 0
+round = inputAoC.copy()
+for i in range(len(inputAoC)):
+    if inputAoC[i] in losses:
+        round[i][1] = 0
 
-def temp():
-    round = inputAoC.copy()
-    for i in range(len(inputAoC)):
-        if inputAoC[i] in losses:
-            round[i][1] = 0
+    if inputAoC[i] in draws:
+        round[i][1] = 3
 
-        if inputAoC[i] in draws:
-            round[i][1] = 3
+    if inputAoC[i] in wins:
+        round[i][1] = 6
 
-        if inputAoC[i] in wins:
-            round[i][1] = 6
-    
-    return round
-
-round = temp()
 
 print("\n\ninput\n\n",inputAoC[:100])
 print("\n\nround\n\n",round[:100])
